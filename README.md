@@ -10,7 +10,6 @@
 
 ```javascript
 import { ObjectUtils } from 'ciag-commons';
-// or var ObjectUtils = required('ciag-commons');
 
 function getCurrentDate(datetime) {
   if(ObjectUtils.isCallable(datetime)) { 
