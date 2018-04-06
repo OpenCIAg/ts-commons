@@ -1,4 +1,9 @@
 export class ObjectUtils {
+    /**
+     * Function used to assign recursively objects at target.
+     * @param obj An Array<any>
+     * @returns target object with values of the sources objects
+    */
     static recursiveAssign(...obj: Array<any>) {
       return obj.reduce((a, b) => ObjectUtils._recursiveAssign(a, b));
     }
@@ -24,6 +29,13 @@ export class ObjectUtils {
       return name.split(".");
     }
   
+    /**
+     * Function used to get an attr inside an object.
+     * @param obj An any
+     * @param name An string or an Array<string>
+     * @param defaultValue An any
+     * @returns if the values is null return the defaultValue, if not return found value
+    */
     static getattr(
       obj: any,
       name: string | null | Array<string> = null,
@@ -45,13 +57,20 @@ export class ObjectUtils {
       return value;
     }
   
+    /**
+     * Function used to set an attr inside an object.
+     * @param obj An any
+     * @param name An string or an Array<string>
+     * @param value An any
+     * @returns false if obj is null or undefined
+    */
     static setattr(obj: any, name: string | Array<string>, value: any) {
       const preparedName = ObjectUtils.prepareName(name);
       let target: any = obj;
+      if (target === undefined || target === null) {
+        return false;
+      }
       for (const key of preparedName.slice(0, -1)) {
-        if (target === undefined || target === null) {
-          return;
-        }
         if (!(key in target)) {
           target[key] = {};
         }
@@ -60,22 +79,47 @@ export class ObjectUtils {
       target[preparedName.slice(-1)[0]] = value;
     }
   
+    /**
+     * Function used to get first things not null.
+     * @param obj An array of any
+     * @returns first not null
+    */
     static firstNonNull(...obj: Array<any>) {
       return obj.find(it => it != null);
     }
   
+     /**
+     * Function used to get first things not empty.
+     * @param obj An array of any
+     * @returns first not empty
+    */
     static firstNonEmpty(...obj: Array<any>) {
       return obj.find(it => !ObjectUtils.isEmpty(it));
     }
   
+    /**
+     * Function used to check if something is calleble.
+     * @param obj An any variable
+     * @returns true or false depends of the obj
+    */
     static isCallable(obj: any): Boolean {
       return obj instanceof Function;
     }
   
+    /**
+     * Function used to copy an object.
+     * @param obj An any variable
+     * @returns a copy of the object
+    */
     static copy(obj: any): any {
       return JSON.parse(JSON.stringify(obj));
     }
   
+    /**
+     * Function used to check if an string is bool or is just a string.
+     * @param obj An any variable
+     * @returns Boolean or string
+    */
     static strToBoolOrStr(str: any): Boolean | string {
       if ([true, false].indexOf(str) !== -1) {
         return str;
@@ -90,6 +134,12 @@ export class ObjectUtils {
       return str;
     }
   
+    /**
+     * Function used to mount an object with two arrays.
+     * @param keys Array of string.
+     * @param values Array of any.
+     * @returns An object
+    */
     static zipToObject(keys: Array<string>, values: Array<any>): any {
       const obj: any = {};
       if (keys.length !== values.length) {
@@ -101,10 +151,20 @@ export class ObjectUtils {
       return obj;
     }
   
+    /**
+     * Function used to check if a variable is string.
+     * @param obj An any variable
+     * @returns boolean
+    */
     static isString(obj: any): boolean {
       return typeof obj === 'string';
     }
   
+    /**
+     * Function used to check if something is empty.
+     * @param obj An any variable
+     * @returns boolean
+    */
     static isEmpty(obj: any): boolean {
       if (obj === null || obj === undefined) {
         return true;
@@ -118,12 +178,22 @@ export class ObjectUtils {
       if (obj === 0) {
         return true;
       }
-      if (Object.keys(obj).length > 0) {
-        return false;
+      if (Object.keys(obj).length === 0) {
+        return true;
       }
       return false;
     }
-  
+
+    /**
+     * Function used to format an string.
+     * Example: 
+     *   message = It's {value}
+     *   data = { value: "works" }
+     *   return It's works
+     * @param message A string
+     * @param data An any
+     * @returns formated message
+    */
     static format(message : string, data : any) {
       let formatedMessage = message;
       let paramRegex = new RegExp("{([\\w\.\\(\\),]+)}", 'g');
