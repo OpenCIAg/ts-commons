@@ -165,4 +165,11 @@ describe('Testing ObjectUtils Class', () => {
         const finalMessage = "It's works";
         expect(finalMessage).to.equal(ObjectUtils.format(message, data));
     });
+
+    it('format, should return "It\'s vice city"', () => {
+        const data = { city: {name: 'vice city'}};
+        const message = "It's {city.name}";
+        const finalMessage = "It's vice city";
+        expect(finalMessage).to.equal(ObjectUtils.format(message, data));
+    });
 });

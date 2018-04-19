@@ -201,7 +201,8 @@ export class ObjectUtils {
       while(true) {
         result = paramRegex.exec(message);
         if(!result) { break; }
-        if(!(result[1] in data)) { continue; }
+        let value = ObjectUtils.getattr(data, result[1]);
+        if(value === undefined) { continue; }
         formatedMessage = formatedMessage.replace(result[0],eval("data." + result[1]));
       }
       return formatedMessage;
