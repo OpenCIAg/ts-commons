@@ -1,5 +1,7 @@
 # Common library for Typescript|ES6 projects
 
+[![NPM](https://nodei.co/npm/ciag-commons.png)](https://nodei.co/npm/ciag-commons/)
+
 ## Install
 
 `$ npm install ciag-commons --save`
