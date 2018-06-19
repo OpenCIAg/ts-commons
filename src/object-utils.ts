@@ -143,7 +143,7 @@ export class ObjectUtils {
     static zipToObject(keys: Array<string>, values: Array<any>): any {
       const obj: any = {};
       if (keys.length !== values.length) {
-        throw Error("errou parça");
+        throw Error();
       }
       for (let i = 0; i < keys.length; i += 1) {
         obj[keys[i]] = values[i];

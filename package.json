@@ -4,9 +4,19 @@
   "description": "Some utils things",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "**/*.ts"
+  ],
+  "standard": {
+    "ignore": [
+      "coverage/**",
+      "node_modules/**",
+      "src/**"
+    ]
+  },
   "scripts": {
     "build": "tsc",
-    "test": "mocha -r ts-node/register lib/**/*.spec.ts"
+    "test": "nyc mocha test/**/*.spec.ts"
   },
   "author": "CIAg",
   "license": "ISC",
@@ -17,5 +27,9 @@
     "mocha": "^5.0.5",
     "ts-node": "^5.0.1",
     "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "huehuejs-name-convention": "0.0.3",
+    "nyc": "^12.0.2"
   }
 }
