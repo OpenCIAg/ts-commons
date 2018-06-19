@@ -1,4 +1,4 @@
-import { ObjectUtils } from './object-utils';
+import { ObjectUtils } from '../src/object-utils';
 import { expect } from 'chai';
 import 'mocha';
 
