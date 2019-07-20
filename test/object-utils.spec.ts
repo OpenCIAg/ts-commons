@@ -172,4 +172,11 @@ describe('Testing ObjectUtils Class', () => {
         const finalMessage = "It's vice city";
         expect(finalMessage).to.equal(ObjectUtils.format(message, data));
     });
+
+    it('round, should return 3.589 with len', () => {
+        const num = 3.5892222;
+        const len = 3;
+        const result = 3.589;
+        expect(result).to.equal(ObjectUtils.round(num, len));
+    });
 });
