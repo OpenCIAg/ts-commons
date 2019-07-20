@@ -209,7 +209,7 @@ export class ObjectUtils {
     }
 
     /**
-     * Function used to rounds a number to a character
+     * Function used to rounds a number
      * Exemple 1:
      *    num = 3.5892222
      *    return 3.59
