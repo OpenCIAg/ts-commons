@@ -207,5 +207,24 @@ export class ObjectUtils {
       }
       return formatedMessage;
     }
-  }
+
+    /**
+     * Function used to rounds a number to a character
+     * Exemple 1:
+     *    num = 3.5892222
+     *    return 3.59
+     * ---------------------
+     * Example 2:
+     *    num = 3.5892222
+     *    len = 3
+     *    return 3.589
+     * @param {number} num A number
+     * @param {number} len Number of characters after the comma
+     * @returns {number} Formated number
+    */
+    static round(num: number, len?: number): number {
+      len = len || 2;
+      return Number(Math.round(Number(num + 'e' + len)) + 'e-' + len);
+    }
+}
   
