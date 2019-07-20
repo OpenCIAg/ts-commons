@@ -179,4 +179,10 @@ describe('Testing ObjectUtils Class', () => {
         const result = 3.589;
         expect(result).to.equal(ObjectUtils.round(num, len));
     });
+
+    it('round, should return 3.59 without len', () => {
+        const num = 3.5892222;
+        const result = 3.59;
+        expect(result).to.equal(ObjectUtils.round(num));
+    });
 });
