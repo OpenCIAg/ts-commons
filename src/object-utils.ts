@@ -210,14 +210,14 @@ export class ObjectUtils {
 
     /**
      * Function used to rounds a number
-     * Exemple 1:
-     *    num = 3.5892222
-     *    return 3.59
-     * ---------------------
-     * Example 2:
-     *    num = 3.5892222
-     *    len = 3
-     *    return 3.589
+     * @example  <caption>Example usage of round without len.</caption>
+     * // returns 3.59
+     * ObjectUtils.round(3.5892222);
+     * 
+     * @example  <caption>Example usage of round with len.</caption>
+     * // returns 3.589
+     * ObjectUtils.round(3.5892222,3);
+     * 
      * @param {number} num A number
      * @param {number} len Number of characters after the comma
      * @returns {number} Formated number
