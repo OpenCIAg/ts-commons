@@ -37,3 +37,5 @@ function getCurrentDate(datetime) {
 | isString        |
 | isEmpty         |
 | format          |
+| round           |
+

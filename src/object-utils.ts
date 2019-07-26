@@ -207,5 +207,24 @@ export class ObjectUtils {
       }
       return formatedMessage;
     }
-  }
+
+    /**
+     * Function used to rounds a number
+     * @example  <caption>Example usage of round without len.</caption>
+     * // returns 3.59
+     * ObjectUtils.round(3.5892222);
+     * 
+     * @example  <caption>Example usage of round with len.</caption>
+     * // returns 3.589
+     * ObjectUtils.round(3.5892222,3);
+     * 
+     * @param {number} num A number
+     * @param {number} len Number of characters after the comma
+     * @returns {number} Formated number
+    */
+    static round(num: number, len?: number): number {
+      len = len || 2;
+      return Number(Math.round(Number(num + 'e' + len)) + 'e-' + len);
+    }
+}
   
