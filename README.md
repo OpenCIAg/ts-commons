@@ -7,7 +7,7 @@
 
 
 ## Object Utils
-
+### [API](API.md)
 ### Usage
 
 ```javascript
