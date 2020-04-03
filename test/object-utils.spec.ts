@@ -11,7 +11,7 @@ describe('Testing ObjectUtils Class', () => {
         expect(finalObject).to.deep.equal(ObjectUtils.recursiveAssign(target, source));
     });
 
-    it('recursiveAssign, should work on objects that already have keys with equal names', () => {
+    it('recursiveAssign, should work on objects that already have keys with equal names targeting an object', () => {
         const source = {
             name: "Sheldon",
             description: "Bazinga"
@@ -30,6 +30,38 @@ describe('Testing ObjectUtils Class', () => {
         expect(result).to.deep.equal(expected);
     });
 
+
+    it('recursiveAssign, should work on objects that already have keys with equal names targeting an array', () => {
+        const source = {
+            name: "Sheldon",
+            description: "Bazinga"
+        };
+        const target = {
+            name: ["Penny"]
+        };
+        const expected = {
+            name: "Sheldon",
+            description: "Bazinga"
+        };
+        const result = ObjectUtils.recursiveAssign(target, source)
+        expect(result).to.deep.equal(expected);
+    });
+
+    it('recursiveAssign, should work on objects that already have keys with equal names targeting a primitive type', () => {
+        const source = {
+            name: "Sheldon",
+            description: "Bazinga"
+        };
+        const target = {
+            name: "Penny"
+        };
+        const expected = {
+            name: "Sheldon",
+            description: "Bazinga"
+        };
+        const result = ObjectUtils.recursiveAssign(target, source)
+        expect(result).to.deep.equal(expected);
+    });
 
 
     it('getattr, should return "It\'s works"', () => {
