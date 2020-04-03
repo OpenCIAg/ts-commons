@@ -12,12 +12,14 @@ export class ObjectUtils {
       target = target || {};
       source = source || {};
       for (const key in source) {
-        const value = target[key];
-        if (Array.isArray(value) || !(value instanceof Object)) {
+        const targetValue = target[key];
+        const sourceValue = source[key];
+        if (Array.isArray(targetValue) || !(targetValue instanceof Object) || !(sourceValue instanceof Object)) {
           target[key] = source[key] || null;
-        } else {
-          ObjectUtils._recursiveAssign(target[key], source[key]);
+          continue;
         }
+
+        ObjectUtils._recursiveAssign(targetValue, source[key]);
       }
       return target;
     }
@@ -210,13 +212,13 @@ export class ObjectUtils {
 
     /**
      * Function used to rounds a number
-     * 
+     *
      * @example  <caption>Example usage of round without len.</caption>
      * ```typescript
      * // returns 3.59
      * ObjectUtils.round(3.5892222);
-     * ``` 
-     * 
+     * ```
+     *
      * @example  <caption>Example usage of round with len.</caption>
      * ```typescript
      * // returns 3.589
@@ -231,4 +233,3 @@ export class ObjectUtils {
       return Number(Math.round(Number(num + 'e' + len)) + 'e-' + len);
     }
 }
-  
