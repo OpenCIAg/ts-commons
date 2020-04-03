@@ -10,6 +10,27 @@ describe('Testing ObjectUtils Class', () => {
         const finalObject = { id: 3, value: "It's works" };
         expect(finalObject).to.deep.equal(ObjectUtils.recursiveAssign(target, source));
     });
+
+    it('recursiveAssign, should work on objects that already have keys with equal names', () => {
+        const source = {
+            name: "Sheldon",
+            description: "Bazinga"
+        };
+        const target = {
+            name: {
+                foo: "bar",
+                baz: "qux",
+            }
+        };
+        const expected = {
+            name: "Sheldon",
+            description: "Bazinga"
+        };
+        const result = ObjectUtils.recursiveAssign(target, source)
+        expect(result).to.deep.equal(expected);
+    });
+
+
     
     it('getattr, should return "It\'s works"', () => {
         const object = { value : "It's works" };
