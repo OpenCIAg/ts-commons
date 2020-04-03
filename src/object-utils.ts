@@ -19,7 +19,7 @@ export class ObjectUtils {
           continue;
         }
 
-        ObjectUtils._recursiveAssign(targetValue, source[key]);
+        ObjectUtils._recursiveAssign(targetValue, sourceValue);
       }
       return target;
     }
