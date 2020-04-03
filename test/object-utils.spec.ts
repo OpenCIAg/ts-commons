@@ -1,4 +1,4 @@
-import { ObjectUtils } from './object-utils';
+import { ObjectUtils } from '../src/object-utils';
 import { expect } from 'chai';
 import 'mocha';
 
@@ -31,7 +31,7 @@ describe('Testing ObjectUtils Class', () => {
     });
 
 
-    
+
     it('getattr, should return "It\'s works"', () => {
         const object = { value : "It's works" };
         const key = 'value';
@@ -192,5 +192,18 @@ describe('Testing ObjectUtils Class', () => {
         const message = "It's {city.name}";
         const finalMessage = "It's vice city";
         expect(finalMessage).to.equal(ObjectUtils.format(message, data));
+    });
+
+    it('round, should return 3.589 with len', () => {
+        const num = 3.5892222;
+        const len = 3;
+        const result = 3.589;
+        expect(result).to.equal(ObjectUtils.round(num, len));
+    });
+
+    it('round, should return 3.59 without len', () => {
+        const num = 3.5892222;
+        const result = 3.59;
+        expect(result).to.equal(ObjectUtils.round(num));
     });
 });
