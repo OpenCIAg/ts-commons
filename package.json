@@ -21,7 +21,8 @@
     "predeploy": "npm run build",
     "deploy": "cd dist/ && npm publish --access public",
     "coverage": "nyc report --reporter=text-lcov | codeclimate-test-reporter ",
-    "docs": "quickdoc"
+    "predocs": "rm -rf docs",
+    "docs": "typedoc --out docs src"
   },
   "author": "CIAg",
   "license": "Apache-2.0",
@@ -31,11 +32,10 @@
     "chai": "^4.1.2",
     "chai-string": "^1.4.0",
     "codeclimate-test-reporter": "^0.5.0",
-    "mocha": "^5.2.0",
+    "mocha": "^9.0.3",
     "nyc": "^14.1.1",
-    "quickdoc": "0.0.2-beta.0",
     "ts-node": "^7.0.0",
-    "typescript": "^2.9.2"
-  },
-  "dependencies": {}
+    "typedoc": "^0.21.5",
+    "typescript": "^4.3.5"
+  }
 }
