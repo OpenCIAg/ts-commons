@@ -6,36 +6,6 @@
 [![npm version](https://badge.fury.io/js/%40ciag%2Fcommons.svg)](https://badge.fury.io/js/%40ciag%2Fcommons)
 
 
-## Object Utils
-### [API](API.md)
-### Usage
+### API
 
-```javascript
-import { ObjectUtils } from 'ciag-commons';
-
-function getCurrentDate(datetime) {
-  if(ObjectUtils.isCallable(datetime)) { 
-    return datetime();
-  }
-  return moment(datetime);
-}
-
-```
-
-| Methods         |
-| --------------- |
-| recursiveAssign |
-| prepareName     |
-| getattr         |
-| setattr         |
-| firstNonNull    |
-| firstNonEmpty   |
-| isCallable      |
-| copy            |
-| strToBoolOrStr  |
-| zipToObject     |
-| isString        |
-| isEmpty         |
-| format          |
-| round           |
-
+Documentation available at: [openciag.github.io/ts-commons](https://openciag.github.io/ts-commons/classes/ObjectUtils.html)
